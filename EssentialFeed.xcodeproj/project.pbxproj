@@ -12,6 +12,7 @@
 		285DAB912A90737D003DC46E /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285DAB902A90737D003DC46E /* FeedItem.swift */; };
 		285DAB932A9073D3003DC46E /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285DAB922A9073D3003DC46E /* FeedLoader.swift */; };
 		285DAB972A90852E003DC46E /* RemoteFeedLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285DAB962A90852E003DC46E /* RemoteFeedLoaderTests.swift */; };
+		285DAB9B2A9086E6003DC46E /* RemoteFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285DAB9A2A9086E6003DC46E /* RemoteFeedLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +33,7 @@
 		285DAB922A9073D3003DC46E /* FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoader.swift; sourceTree = "<group>"; };
 		285DAB952A90852E003DC46E /* EssentialFeedTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EssentialFeedTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		285DAB962A90852E003DC46E /* RemoteFeedLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoaderTests.swift; sourceTree = "<group>"; };
+		285DAB9A2A9086E6003DC46E /* RemoteFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 			children = (
 				285DAB792A907009003DC46E /* EssentialFeed.h */,
 				285DAB942A90740A003DC46E /* Feed feature */,
+				285DAB9A2A9086E6003DC46E /* RemoteFeedLoader.swift */,
 			);
 			path = EssentialFeed;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				285DAB932A9073D3003DC46E /* FeedLoader.swift in Sources */,
+				285DAB9B2A9086E6003DC46E /* RemoteFeedLoader.swift in Sources */,
 				285DAB912A90737D003DC46E /* FeedItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
