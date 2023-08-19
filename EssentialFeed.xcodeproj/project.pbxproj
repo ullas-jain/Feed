@@ -11,6 +11,7 @@
 		285DAB852A907009003DC46E /* EssentialFeed.h in Headers */ = {isa = PBXBuildFile; fileRef = 285DAB792A907009003DC46E /* EssentialFeed.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		285DAB912A90737D003DC46E /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285DAB902A90737D003DC46E /* FeedItem.swift */; };
 		285DAB932A9073D3003DC46E /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285DAB922A9073D3003DC46E /* FeedLoader.swift */; };
+		285DAB972A90852E003DC46E /* RemoteFeedLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285DAB962A90852E003DC46E /* RemoteFeedLoaderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,8 @@
 		285DAB7E2A907009003DC46E /* EssentialFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		285DAB902A90737D003DC46E /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
 		285DAB922A9073D3003DC46E /* FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoader.swift; sourceTree = "<group>"; };
+		285DAB952A90852E003DC46E /* EssentialFeedTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EssentialFeedTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		285DAB962A90852E003DC46E /* RemoteFeedLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoaderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +83,8 @@
 		285DAB822A907009003DC46E /* EssentialFeedTests */ = {
 			isa = PBXGroup;
 			children = (
+				285DAB962A90852E003DC46E /* RemoteFeedLoaderTests.swift */,
+				285DAB952A90852E003DC46E /* EssentialFeedTests-Bridging-Header.h */,
 			);
 			path = EssentialFeedTests;
 			sourceTree = "<group>";
@@ -159,6 +164,7 @@
 					};
 					285DAB7D2A907009003DC46E = {
 						CreatedOnToolsVersion = 14.3.1;
+						LastSwiftMigration = 1430;
 					};
 				};
 			};
@@ -212,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				285DAB972A90852E003DC46E /* RemoteFeedLoaderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +421,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5X8H5M27DY;
@@ -422,6 +430,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jainullas.EssentialFeedTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "EssentialFeedTests/EssentialFeedTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -430,6 +440,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5X8H5M27DY;
@@ -438,6 +449,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jainullas.EssentialFeedTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "EssentialFeedTests/EssentialFeedTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
