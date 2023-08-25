@@ -44,6 +44,7 @@
 		285DAB9D2A91C9D3003DC46E /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		285DAB9F2A91C9FA003DC46E /* FeedItemsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemsMapper.swift; sourceTree = "<group>"; };
 		285DABA22A932AC4003DC46E /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
+		287B9EE82A987564009C5AC1 /* EssentialFeed.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = EssentialFeed.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +77,7 @@
 		285DAB6C2A907009003DC46E = {
 			isa = PBXGroup;
 			children = (
+				287B9EE82A987564009C5AC1 /* EssentialFeed.xctestplan */,
 				285DAB782A907009003DC46E /* EssentialFeed */,
 				285DAB822A907009003DC46E /* EssentialFeedTests */,
 				285DAB772A907009003DC46E /* Products */,
