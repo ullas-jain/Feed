@@ -50,21 +50,21 @@ class FeedStore {
         deletionCompletion[index](error)
     }
     
-    func completeInsertion(with error: Error, at index: Int = 0) {
-        insertionCompletion[index](error)
-    }
-    
     func completeDeletionSuccessfully(at index: Int = 0) {
         deletionCompletion[index](nil)
-    }
-    
-    func completeInsertionSuccessfully(at index: Int = 0) {
-        insertionCompletion[index](nil)
     }
     
     func insert(_ items: [FeedItem], timestamp: Date, completion: @escaping InsertionCompletion) {
         insertionCompletion.append(completion)
         receivedMessages.append(.insert(items, timestamp))
+    }
+    
+    func completeInsertion(with error: Error, at index: Int = 0) {
+        insertionCompletion[index](error)
+    }
+    
+    func completeInsertionSuccessfully(at index: Int = 0) {
+        insertionCompletion[index](nil)
     }
 }
 
