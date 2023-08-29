@@ -31,9 +31,7 @@ class LocalFeedLoader {
 class FeedStore {
     typealias DeletionCompletion = (Error?) -> Void
     typealias InsertionCompletion = (Error?) -> Void
-    
-    var insertions = [(items: [FeedItem], timestamp: Date)]()
-    
+        
     enum ReceivedMessage: Equatable {
         case deleteCachedFeed
         case insert([FeedItem], Date)
@@ -61,7 +59,6 @@ class FeedStore {
     }
     
     func insert(_ items: [FeedItem], timestamp: Date, completion: @escaping InsertionCompletion) {
-        insertions.append((items, timestamp))
         insertionCompletion.append(completion)
         receivedMessages.append(.insert(items, timestamp))
     }
