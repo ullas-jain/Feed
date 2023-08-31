@@ -7,7 +7,7 @@
 
 import EssentialFeed
 
-public class FeedStoreSpy: FeedStore {
+class FeedStoreSpy: FeedStore {
     
     enum ReceivedMessage: Equatable {
         case deleteCachedFeed
@@ -16,42 +16,47 @@ public class FeedStoreSpy: FeedStore {
     }
     
     private(set) var receivedMessages = [ReceivedMessage]()
-    private var deletionCompletion = [DeletionCompletion]()
-    private var insertionCompletion = [InsertionCompletion]()
-    private var retrievalCompletion = [RetrievalCompletion]()
     
-    public func deleteCacheFeed(completion: @escaping DeletionCompletion) {
+    private var deletionCompletions = [DeletionCompletion]()
+    private var insertionCompletions = [InsertionCompletion]()
+    private var retrievalCompletions = [RetrievalCompletion]()
+    
+    func deleteCacheFeed(completion: @escaping DeletionCompletion) {
+        deletionCompletions.append(completion)
         receivedMessages.append(.deleteCachedFeed)
-        deletionCompletion.append(completion)
     }
     
     func completeDeletion(with error: Error, at index: Int = 0) {
-        deletionCompletion[index](error)
+        deletionCompletions[index](error)
     }
     
     func completeDeletionSuccessfully(at index: Int = 0) {
-        deletionCompletion[index](nil)
+        deletionCompletions[index](nil)
     }
     
-    public func insert(_ items: [LocalFeedImage], timestamp: Date, completion: @escaping InsertionCompletion) {
-        insertionCompletion.append(completion)
-        receivedMessages.append(.insert(items, timestamp))
+    func insert(_ feed: [LocalFeedImage], timestamp: Date, completion: @escaping InsertionCompletion) {
+        insertionCompletions.append(completion)
+        receivedMessages.append(.insert(feed, timestamp))
     }
     
     func completeInsertion(with error: Error, at index: Int = 0) {
-        insertionCompletion[index](error)
+        insertionCompletions[index](error)
     }
     
     func completeInsertionSuccessfully(at index: Int = 0) {
-        insertionCompletion[index](nil)
+        insertionCompletions[index](nil)
     }
     
-    public func retrieve(completion: @escaping RetrievalCompletion) {
-        retrievalCompletion.append(completion)
+    func retrieve(completion: @escaping RetrievalCompletion) {
+        retrievalCompletions.append(completion)
         receivedMessages.append(.retrieve)
     }
     
     func completeRetrieval(with error: Error, at index: Int = 0) {
-        retrievalCompletion[index](error)
+        retrievalCompletions[index](error)
+    }
+
+    func completeRetrievalWithEmptyCache(at index: Int = 0) {
+        retrievalCompletions[index](nil)
     }
 }
