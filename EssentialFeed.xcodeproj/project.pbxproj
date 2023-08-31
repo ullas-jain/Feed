@@ -109,12 +109,20 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		2823908D2AA028BC000B818B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2823908B2AA0286F000B818B /* FeedStoreSpy.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		2849BC2C2A9DC10F009781A9 /* Feed Cache */ = {
 			isa = PBXGroup;
 			children = (
+				2823908D2AA028BC000B818B /* Helpers */,
 				2849BC2A2A9DC107009781A9 /* CacheFeedUseCaseTests.swift */,
 				282390892AA027C8000B818B /* LoadFeedFromCacheUseCaseTests.swift */,
-				2823908B2AA0286F000B818B /* FeedStoreSpy.swift */,
 			);
 			path = "Feed Cache";
 			sourceTree = "<group>";
