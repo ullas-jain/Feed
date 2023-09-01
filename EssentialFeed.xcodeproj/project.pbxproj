@@ -29,6 +29,7 @@
 		288B6E0A2A9F17770096B286 /* RemoteFeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288B6E092A9F17770096B286 /* RemoteFeedItem.swift */; };
 		288B6E0C2A9F179D0096B286 /* LocalFeedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288B6E0B2A9F179D0096B286 /* LocalFeedImage.swift */; };
 		28C9CBFE2AA1B18900749881 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 28C9CBFD2AA1B18900749881 /* README.md */; };
+		28C9CC002AA1B59000749881 /* ValidateFeedCacheUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C9CBFF2AA1B59000749881 /* ValidateFeedCacheUseCaseTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		288B6E092A9F17770096B286 /* RemoteFeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedItem.swift; sourceTree = "<group>"; };
 		288B6E0B2A9F179D0096B286 /* LocalFeedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedImage.swift; sourceTree = "<group>"; };
 		28C9CBFD2AA1B18900749881 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		28C9CBFF2AA1B59000749881 /* ValidateFeedCacheUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateFeedCacheUseCaseTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 				2823908D2AA028BC000B818B /* Helpers */,
 				2849BC2A2A9DC107009781A9 /* CacheFeedUseCaseTests.swift */,
 				282390892AA027C8000B818B /* LoadFeedFromCacheUseCaseTests.swift */,
+				28C9CBFF2AA1B59000749881 /* ValidateFeedCacheUseCaseTests.swift */,
 			);
 			path = "Feed Cache";
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28C9CC002AA1B59000749881 /* ValidateFeedCacheUseCaseTests.swift in Sources */,
 				285DAB972A90852E003DC46E /* LoadFeedFromRemoteUseCaseTests.swift in Sources */,
 				285DABA32A932AC4003DC46E /* URLSessionHTTPClientTests.swift in Sources */,
 				2823908C2AA0286F000B818B /* FeedStoreSpy.swift in Sources */,
