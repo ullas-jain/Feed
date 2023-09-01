@@ -21,7 +21,7 @@ public final class LocalFeedLoader {
     }
     
     public func save(_ items: [FeedImage], completion: @escaping (SaveResult) -> Void) {
-        store.deleteCacheFeed { [weak self] error in
+        store.deleteCachedFeed { [weak self] error in
             guard let self = self else { return }
             if let cacheDeletionError = error {
                 completion(cacheDeletionError)
@@ -51,9 +51,9 @@ public final class LocalFeedLoader {
             guard let self = self else { return }
             switch result {
             case .failure:
-                self.store.deleteCacheFeed { _ in }
+                self.store.deleteCachedFeed { _ in }
             case let .found(_, timestamp) where !self.validate(timestamp):
-                self.store.deleteCacheFeed { _ in }
+                self.store.deleteCachedFeed { _ in }
             default: break
             }
         }
