@@ -30,7 +30,7 @@ jobs:
         
     - name: Build and Test
       run: |
-        xcodebuild clean build test -project EssentialFeed.xcodeproj -scheme "CI" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -destination 'platform=iOS Simulator,OS=latest,name=iPhone 13'
+        xcodebuild clean build test -project EssentialFeed.xcodeproj -scheme "CI" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO #-destination 'platform=macOS, name=Any Mac'
         
     - name: Lint Swift Code
       run: |
