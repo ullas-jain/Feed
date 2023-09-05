@@ -130,8 +130,8 @@ class CodableFeedStoreTests: XCTestCase {
                         XCTAssertEqual(firstFeed, feed)
                         XCTAssertEqual(firstTimestamp, timestamp)
                        
-                        XCTAssertEqual(secondFeed, secondFeed)
-                        XCTAssertEqual(secondTimestamp, secondTimestamp)
+                        XCTAssertEqual(secondFeed, feed)
+                        XCTAssertEqual(secondTimestamp, timestamp)
 
                     default:
                         XCTFail("Expected retrieving twice from non empty cache to deliver same found result with feed \(feed) and timestamp \(timestamp), got \(firstResult) and \(secondResult) instead")
