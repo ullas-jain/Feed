@@ -15,9 +15,9 @@ public final class RemoteFeedLoader: FeedLoader {
         case connectivity
         case invalidData
     }
-    
+
     public typealias Result = LoadFeedResult
-    
+
     public init(url: URL, client: HTTPClient) {
         self.url = url
         self.client = client
@@ -34,7 +34,7 @@ public final class RemoteFeedLoader: FeedLoader {
             }
         }
     }
-    
+
     private static func map(_ data: Data, from response: HTTPURLResponse) -> Result {
         do {
             let items = try FeedItemsMapper.map(data, from: response)

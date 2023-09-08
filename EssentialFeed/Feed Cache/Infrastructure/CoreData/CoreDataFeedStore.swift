@@ -16,7 +16,7 @@ public final class CoreDataFeedStore: FeedStore {
         container = try NSPersistentContainer.load(modelName: "FeedStore", url: storeURL, in: bundle)
         context = container.newBackgroundContext()
     }
-    
+
     public func retrieve(completion: @escaping RetrievalCompletion) {
         perform { context in
             do {

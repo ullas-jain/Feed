@@ -5,8 +5,8 @@
 //  Created by Jain Ullas on 9/1/23.
 //
 
-import Foundation
 import EssentialFeed
+import Foundation
 
 func uniqueImage() -> FeedImage {
     return FeedImage(id: UUID(), description: "any", location: "any", url: anyURL())
@@ -22,11 +22,11 @@ extension Date {
     func minusFeedCacheMaxAge() -> Date {
         return adding(days: -feedCacheMaxAgeInDays)
     }
-    
+
     private var feedCacheMaxAgeInDays: Int {
         return 7
     }
-    
+
     private func adding(days: Int) -> Date {
         return Calendar(identifier: .gregorian).date(byAdding: .day, value: days, to: self)!
     }

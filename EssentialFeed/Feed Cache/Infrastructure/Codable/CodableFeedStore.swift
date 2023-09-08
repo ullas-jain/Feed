@@ -11,12 +11,12 @@ public final class CodableFeedStore: FeedStore {
     private struct Cache: Codable {
         let feed: [CodableFeedImage]
         let timestamp: Date
-        
+
         var localFeed: [LocalFeedImage] {
             return feed.map { $0.local }
         }
     }
-    
+
     private struct CodableFeedImage: Codable {
         private let id: UUID
         private let description: String?
@@ -48,7 +48,7 @@ public final class CodableFeedStore: FeedStore {
             guard let data = try? Data(contentsOf: storeURL) else {
                 return completion(.empty)
             }
-            
+
             do {
                 let decoder = JSONDecoder()
                 let cache = try decoder.decode(Cache.self, from: data)
@@ -73,14 +73,14 @@ public final class CodableFeedStore: FeedStore {
             }
         }
     }
-    
+
     public func deleteCachedFeed(completion: @escaping FeedStore.DeletionCompletion) {
         let storeURL = self.storeURL
         queue.async(flags: .barrier) {
             guard FileManager.default.fileExists(atPath: storeURL.path) else {
                 return completion(nil)
             }
-            
+
             do {
                 try FileManager.default.removeItem(at: storeURL)
                 completion(nil)
