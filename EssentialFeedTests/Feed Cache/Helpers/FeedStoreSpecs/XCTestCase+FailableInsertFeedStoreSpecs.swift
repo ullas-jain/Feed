@@ -5,8 +5,8 @@
 //  Created by Jain Ullas on 9/6/23.
 //
 
-import XCTest
 import EssentialFeed
+import XCTest
 
 extension FailableInsertFeedStoreSpecs where Self: XCTestCase {
     func assertThatInsertDeliversErrorOnInsertionError(on sut: FeedStore, file: StaticString = #file, line: UInt = #line) {

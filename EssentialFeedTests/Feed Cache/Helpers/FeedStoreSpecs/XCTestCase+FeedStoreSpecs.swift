@@ -5,12 +5,11 @@
 //  Created by Jain Ullas on 9/6/23.
 //
 
-import Foundation
 import EssentialFeed
+import Foundation
 import XCTest
 
 extension FeedStoreSpecs where Self: XCTestCase {
-
     func assertThatRetrieveDeliversEmptyOnEmptyCache(on sut: FeedStore, file: StaticString = #file, line: UInt = #line) {
         expect(sut, toRetrieve: .empty, file: file, line: line)
     }
@@ -114,7 +113,6 @@ extension FeedStoreSpecs where Self: XCTestCase {
 
         XCTAssertEqual(completedOperationsInOrder, [op1, op2, op3], "Expected side-effects to run serially but operations finished in the wrong order", file: file, line: line)
     }
-
 }
 
 extension FeedStoreSpecs where Self: XCTestCase {
@@ -132,7 +130,7 @@ extension FeedStoreSpecs where Self: XCTestCase {
         wait(for: [exp], timeout: 1.0)
         return insertionError
     }
-    
+
     @discardableResult
     func deleteCache(from sut: FeedStore) -> Error? {
         let exp = expectation(description: "Wait for cache deletion")
@@ -144,13 +142,13 @@ extension FeedStoreSpecs where Self: XCTestCase {
         wait(for: [exp], timeout: 1.0)
         return deletionError
     }
-    
+
     func expect(_ sut: FeedStore, toRetrieve expectedResult: RetrieveCachedFeedResult, file: StaticString = #filePath, line: UInt = #line) {
         let exp = expectation(description: "Wait for cache retrieval")
         sut.retrieve { retrievedResult in
             switch (expectedResult, retrievedResult) {
             case (.empty, .empty),
-                (.failure, .failure):
+                 (.failure, .failure):
                 break
 
             case let (.found(expectedFeed, expectedTimestamp), .found(retrievedFeed, retrievedTimestamp)):
@@ -164,7 +162,7 @@ extension FeedStoreSpecs where Self: XCTestCase {
         }
         wait(for: [exp], timeout: 1.0)
     }
-    
+
     func expect(_ sut: FeedStore, toRetrieveTwice expectedResult: RetrieveCachedFeedResult, file: StaticString = #filePath, line: UInt = #line) {
         expect(sut, toRetrieve: expectedResult, file: file, line: line)
         expect(sut, toRetrieve: expectedResult, file: file, line: line)

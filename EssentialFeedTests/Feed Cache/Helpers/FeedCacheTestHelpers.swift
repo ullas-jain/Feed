@@ -5,11 +5,11 @@
 //  Created by Jain Ullas on 9/1/23.
 //
 
-import Foundation
 import EssentialFeed
+import Foundation
 
 func uniqueImage() -> FeedImage {
-    return FeedImage(id: UUID(), description: "any", location: "any", url: anyURL())
+    FeedImage(id: UUID(), description: "any", location: "any", url: anyURL())
 }
 
 func uniqueImageFeed() -> (models: [FeedImage], local: [LocalFeedImage]) {
@@ -20,20 +20,20 @@ func uniqueImageFeed() -> (models: [FeedImage], local: [LocalFeedImage]) {
 
 extension Date {
     func minusFeedCacheMaxAge() -> Date {
-        return adding(days: -feedCacheMaxAgeInDays)
+        adding(days: -feedCacheMaxAgeInDays)
     }
-    
+
     private var feedCacheMaxAgeInDays: Int {
-        return 7
+        7
     }
-    
+
     private func adding(days: Int) -> Date {
-        return Calendar(identifier: .gregorian).date(byAdding: .day, value: days, to: self)!
+        Calendar(identifier: .gregorian).date(byAdding: .day, value: days, to: self)!
     }
 }
 
 extension Date {
     func adding(seconds: TimeInterval) -> Date {
-        return self + seconds
+        self + seconds
     }
 }

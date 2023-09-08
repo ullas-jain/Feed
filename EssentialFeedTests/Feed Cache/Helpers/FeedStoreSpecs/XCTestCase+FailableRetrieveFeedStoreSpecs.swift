@@ -5,8 +5,8 @@
 //  Created by Jain Ullas on 9/6/23.
 //
 
-import XCTest
 import EssentialFeed
+import XCTest
 
 extension FailableRetrieveFeedStoreSpecs where Self: XCTestCase {
     func assertThatRetrieveDeliversFailureOnRetrievalError(on sut: FeedStore, file: StaticString = #file, line: UInt = #line) {
