@@ -8,7 +8,7 @@
 import Foundation
 
 enum FeedItemsMapper {
-    private static var OK_200: Int { return 200 }
+    private static var OK_200: Int { 200 }
 
     private struct Root: Decodable {
         let items: [RemoteFeedItem]

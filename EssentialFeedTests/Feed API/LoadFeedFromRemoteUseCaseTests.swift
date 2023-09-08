@@ -155,7 +155,7 @@ class LoadFeedFromRemoteUseCaseTests: XCTestCase {
     }
 
     private func failure(_ error: RemoteFeedLoader.Error) -> RemoteFeedLoader.Result {
-        return .failure(error)
+        .failure(error)
     }
 
     private func makeItem(id: UUID,
@@ -177,13 +177,15 @@ class LoadFeedFromRemoteUseCaseTests: XCTestCase {
 
     private func makeItemsJSON(_ items: [[String: Any]]) -> Data {
         let json = ["items": items]
+        // swiftlint:disable force_try
         return try! JSONSerialization.data(withJSONObject: json)
+        // swiftlint:enable force_try
     }
 
     private class HTTPClientSpy: HTTPClient {
         private var messages = [(url: URL, completion: (HTTPClientResult) -> Void)]()
         var requestedURLs: [URL] {
-            messages.map { $0.url }
+            messages.map(\.url)
         }
 
         func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void) {

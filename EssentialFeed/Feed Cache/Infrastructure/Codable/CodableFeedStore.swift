@@ -13,7 +13,7 @@ public final class CodableFeedStore: FeedStore {
         let timestamp: Date
 
         var localFeed: [LocalFeedImage] {
-            return feed.map { $0.local }
+            feed.map(\.local)
         }
     }
 
@@ -31,7 +31,7 @@ public final class CodableFeedStore: FeedStore {
         }
 
         var local: LocalFeedImage {
-            return LocalFeedImage(id: id, description: description, location: location, url: url)
+            LocalFeedImage(id: id, description: description, location: location, url: url)
         }
     }
 
@@ -43,7 +43,7 @@ public final class CodableFeedStore: FeedStore {
     }
 
     public func retrieve(completion: @escaping FeedStore.RetrievalCompletion) {
-        let storeURL = self.storeURL
+        let storeURL = storeURL
         queue.async {
             guard let data = try? Data(contentsOf: storeURL) else {
                 return completion(.empty)
@@ -60,7 +60,7 @@ public final class CodableFeedStore: FeedStore {
     }
 
     public func insert(_ feed: [LocalFeedImage], timestamp: Date, completion: @escaping FeedStore.InsertionCompletion) {
-        let storeURL = self.storeURL
+        let storeURL = storeURL
         queue.async(flags: .barrier) {
             do {
                 let encoder = JSONEncoder()
@@ -75,7 +75,7 @@ public final class CodableFeedStore: FeedStore {
     }
 
     public func deleteCachedFeed(completion: @escaping FeedStore.DeletionCompletion) {
-        let storeURL = self.storeURL
+        let storeURL = storeURL
         queue.async(flags: .barrier) {
             guard FileManager.default.fileExists(atPath: storeURL.path) else {
                 return completion(nil)

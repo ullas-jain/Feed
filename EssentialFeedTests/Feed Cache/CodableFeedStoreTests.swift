@@ -48,18 +48,18 @@ class CodableFeedStoreTests: XCTestCase, FailableFeedStoreSpecs {
     func test_retrieve_deliversFailureOnRetrievalError() {
         let storeURL = testSpecificStoreURL()
         let sut = makeSUT(storeURL: storeURL)
-
+        // swiftlint:disable force_try
         try! "invalid data".write(to: storeURL, atomically: false, encoding: .utf8)
-
+        // swiftlint:enable force_try
         assertThatRetrieveDeliversFailureOnRetrievalError(on: sut)
     }
 
     func test_retrieve_hasNoSideEffectsOnFailure() {
         let storeURL = testSpecificStoreURL()
         let sut = makeSUT(storeURL: storeURL)
-
+        // swiftlint:disable force_try
         try! "invalid data".write(to: storeURL, atomically: false, encoding: .utf8)
-
+        // swiftlint:enable force_try
         assertThatRetrieveDeliversFailureOnRetrievalError(on: sut)
     }
 
@@ -148,15 +148,15 @@ class CodableFeedStoreTests: XCTestCase, FailableFeedStoreSpecs {
     }
 
     private func testSpecificStoreURL() -> URL {
-        return cachesDirectory().appendingPathComponent("\(type(of: self)).store")
+        cachesDirectory().appendingPathComponent("\(type(of: self)).store")
     }
 
     private func cachesDirectory() -> URL {
-        return FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
+        FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
     }
 
     private func noDeletePermissionURL() -> URL {
-        return FileManager.default.urls(for: .cachesDirectory, in: .systemDomainMask).first!
+        FileManager.default.urls(for: .cachesDirectory, in: .systemDomainMask).first!
     }
 
     private func setupEmptyStoreState() {
