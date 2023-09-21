@@ -16,8 +16,8 @@
 		2823908C2AA0286F000B818B /* FeedStoreSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2823908B2AA0286F000B818B /* FeedStoreSpy.swift */; };
 		2825E51B2AA1B79C001DB4CA /* FeedCacheTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2825E51A2AA1B79C001DB4CA /* FeedCacheTestHelpers.swift */; };
 		2825E51D2AA1B8E1001DB4CA /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2825E51C2AA1B8E1001DB4CA /* SharedTestHelpers.swift */; };
-		28332F0E2AB422AE00B1301C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28332F0D2AB422AE00B1301C /* Main.storyboard */; };
 		28332F122AB4236800B1301C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28332F112AB4236800B1301C /* Assets.xcassets */; };
+		283E393B2AB96B9100E24450 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28332F0D2AB422AE00B1301C /* Main.storyboard */; };
 		284103512AA33683003F6748 /* FeedCachePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284103502AA33683003F6748 /* FeedCachePolicy.swift */; };
 		284103532AA337B3003F6748 /* .github in Resources */ = {isa = PBXBuildFile; fileRef = 284103522AA337B3003F6748 /* .github */; };
 		2849BC2B2A9DC107009781A9 /* CacheFeedUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2849BC2A2A9DC107009781A9 /* CacheFeedUseCaseTests.swift */; };
@@ -587,6 +587,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28332F122AB4236800B1301C /* Assets.xcassets in Resources */,
+				283E393B2AB96B9100E24450 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,7 +602,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28332F0E2AB422AE00B1301C /* Main.storyboard in Resources */,
 				284103532AA337B3003F6748 /* .github in Resources */,
 				28C9CBFE2AA1B18900749881 /* README.md in Resources */,
 			);
@@ -918,6 +918,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -974,6 +975,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -997,6 +999,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -1034,6 +1037,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
