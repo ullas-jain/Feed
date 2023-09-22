@@ -61,6 +61,7 @@
 		28DA9D0C2AB700EB00360130 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DA9D0B2AB700EB00360130 /* FeedViewController.swift */; };
 		7866A1532ABD2CB000FEB37A /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 285DAB762A907009003DC46E /* EssentialFeed.framework */; };
 		7866A1542ABD2CB000FEB37A /* EssentialFeed.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 285DAB762A907009003DC46E /* EssentialFeed.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7866A1592ABD5D2C00FEB37A /* FeedImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7866A1582ABD5D2C00FEB37A /* FeedImageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,6 +171,7 @@
 		28C9CBFF2AA1B59000749881 /* ValidateFeedCacheUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateFeedCacheUseCaseTests.swift; sourceTree = "<group>"; };
 		28DA9D082AB6FC8C00360130 /* FeedViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewControllerTests.swift; sourceTree = "<group>"; };
 		28DA9D0B2AB700EB00360130 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		7866A1582ABD5D2C00FEB37A /* FeedImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +241,7 @@
 				28332F0D2AB422AE00B1301C /* Main.storyboard */,
 				2822FD322AAEDE6000DAC615 /* EssentialFeediOS.h */,
 				28DA9D0B2AB700EB00360130 /* FeedViewController.swift */,
+				7866A1582ABD5D2C00FEB37A /* FeedImageCell.swift */,
 			);
 			path = EssentialFeediOS;
 			sourceTree = "<group>";
@@ -671,6 +674,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28DA9D0C2AB700EB00360130 /* FeedViewController.swift in Sources */,
+				7866A1592ABD5D2C00FEB37A /* FeedImageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
