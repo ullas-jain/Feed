@@ -258,8 +258,7 @@
 				28332F112AB4236800B1301C /* Assets.xcassets */,
 				28332F0D2AB422AE00B1301C /* Main.storyboard */,
 				2822FD322AAEDE6000DAC615 /* EssentialFeediOS.h */,
-				7864225A2AC1C154004B133E /* Controllers */,
-				7864225B2AC1C15D004B133E /* Views */,
+				786422652AC1C2BE004B133E /* Feed UI */,
 			);
 			path = EssentialFeediOS;
 			sourceTree = "<group>";
@@ -480,6 +479,15 @@
 				28DA9D082AB6FC8C00360130 /* FeedViewControllerTests.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		786422652AC1C2BE004B133E /* Feed UI */ = {
+			isa = PBXGroup;
+			children = (
+				7864225A2AC1C154004B133E /* Controllers */,
+				7864225B2AC1C15D004B133E /* Views */,
+			);
+			path = "Feed UI";
 			sourceTree = "<group>";
 		};
 		7866A1522ABD2CB000FEB37A /* Frameworks */ = {
