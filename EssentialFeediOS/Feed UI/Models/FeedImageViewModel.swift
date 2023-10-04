@@ -17,11 +17,11 @@ final class FeedImageViewModel<Image> {
     private let imageLoader: FeedImageDataLoader
     private let imageTransformer: (Data) -> Image?
 
-        init(model: FeedImage, imageLoader: FeedImageDataLoader, imageTransformer: @escaping (Data) -> Image?) {
-            self.model = model
-            self.imageLoader = imageLoader
-            self.imageTransformer = imageTransformer
-        }
+    init(model: FeedImage, imageLoader: FeedImageDataLoader, imageTransformer: @escaping (Data) -> Image?) {
+        self.model = model
+        self.imageLoader = imageLoader
+        self.imageTransformer = imageTransformer
+    }
 
     var description: String? {
         model.description

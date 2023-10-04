@@ -23,7 +23,7 @@ public final class FeedUIComposer {
         { [weak controller] feed in
             controller?.tableModel = feed.map { model in
                 FeedImageCellController(viewModel:
-                                    FeedImageViewModel(model: model, imageLoader: loader, imageTransformer: UIImage.init))
+                    FeedImageViewModel(model: model, imageLoader: loader, imageTransformer: UIImage.init))
             }
         }
     }
