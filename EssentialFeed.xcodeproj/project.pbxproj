@@ -302,7 +302,7 @@
 				2822FD3C2AAEDE6000DAC615 /* EssentialFeediOSTests.swift */,
 				7864225C2AC1C171004B133E /* Controllers */,
 				786422532AC1C068004B133E /* Helpers */,
-				787149032ACFDC2300D9AA1D /* FeedLocalizationTests.swift */,
+				787149052ACFDC8A00D9AA1D /* Feed Presentation */,
 			);
 			path = EssentialFeediOSTests;
 			sourceTree = "<group>";
@@ -566,6 +566,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		787149052ACFDC8A00D9AA1D /* Feed Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				787149032ACFDC2300D9AA1D /* FeedLocalizationTests.swift */,
+			);
+			path = "Feed Presentation";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
