@@ -502,8 +502,8 @@
 				78601AC42ACF0B4900C6105E /* FeedImagePresenter.swift */,
 				78601AC62ACF0BFB00C6105E /* FeedLoadingViewModel.swift */,
 				78601AC82ACF0C0F00C6105E /* FeedViewModel.swift */,
-				787149002ACFDAA500D9AA1D /* Feed.strings */,
 				787847AC2AD3CDDC00775F19 /* FeedErrorViewModel.swift */,
+				787149002ACFDAA500D9AA1D /* Feed.strings */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
