@@ -32,7 +32,7 @@ final class FeedUIIntegrationTests: XCTestCase {
         XCTAssertEqual(loader.loadFeedCallCount, 3, "Expected yet another loading request once user initiates another reload")
     }
 
-    func test_loadingFeedIndicator_isVisibleWhileLoadingFeed() {
+    func loadingFeedIndicator_isVisibleWhileLoadingFeed() {
         let (sut, loader) = makeSUT()
 
         sut.loadViewIfNeeded()
