@@ -20,6 +20,10 @@ protocol FeedView {
 struct FeedErrorViewModel {
     let message: String?
 
+    static func error(message: String) -> FeedErrorViewModel {
+        FeedErrorViewModel(message: message)
+    }
+
     static var noError: FeedErrorViewModel {
         FeedErrorViewModel(message: nil)
     }
@@ -42,6 +46,10 @@ final class FeedPresenter {
     private let errorView: FeedErrorView
     private let loadingView: FeedLoadingView
 
+    private var feedLoadError: String {
+        String(localized: "FEED_VIEW_CONNECTION_ERROR")
+    }
+
     init(feedView: FeedView, loadingView: FeedLoadingView, errorView: FeedErrorView) {
         self.feedView = feedView
         self.loadingView = loadingView
@@ -55,6 +63,11 @@ final class FeedPresenter {
 
     func didFinishLoadingFeed(with feed: [FeedImage]) {
         feedView.display(FeedViewModel(feed: feed))
+        loadingView.display(FeedLoadingViewModel(isLoading: false))
+    }
+
+    func didFinishLoadingFeed(with _: Error) {
+        errorView.display(.error(message: feedLoadError))
         loadingView.display(FeedLoadingViewModel(isLoading: false))
     }
 }
@@ -83,7 +96,27 @@ class FeedPresenterTests: XCTestCase {
         XCTAssertEqual(view.messages, [.display(feed: feed), .display(isLoading: false)])
     }
 
+    func test_didFinishLoadingFeedWithError_displaysLocalizedErrorMessageAndStopsLoading() {
+        let (sut, view) = makeSUT()
+
+        sut.didFinishLoadingFeed(with: anyNSError())
+
+        XCTAssertEqual(view.messages, [
+            .display(errorMessage: localized("FEED_VIEW_CONNECTION_ERROR")),
+            .display(isLoading: false),
+        ])
+    }
+
     // MARK: - Helpers
+
+    private func localized(_ key: String, file _: StaticString = #file, line _: UInt = #line) -> String {
+        let table = "Feed"
+        let value = String(localized: LocalizedStringResource("\(key)"))
+//            if value == key {
+//                XCTFail("Missing localized string for key: \(key) in table: \(table)", file: file, line: line)
+//            }
+        return value
+    }
 
     private func makeSUT() -> (sut: FeedPresenter, view: ViewSpy) {
         let view = ViewSpy()
