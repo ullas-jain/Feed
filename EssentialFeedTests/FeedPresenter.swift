@@ -50,6 +50,10 @@ final class FeedPresenter {
         String(localized: "FEED_VIEW_CONNECTION_ERROR")
     }
 
+    static var title: String {
+        String(localized: "FEED_VIEW_TITLE")
+    }
+
     init(feedView: FeedView, loadingView: FeedLoadingView, errorView: FeedErrorView) {
         self.feedView = feedView
         self.loadingView = loadingView
@@ -73,6 +77,10 @@ final class FeedPresenter {
 }
 
 class FeedPresenterTests: XCTestCase {
+    func test_title_isLocalized() {
+        XCTAssertEqual(FeedPresenter.title, localized("FEED_VIEW_TITLE"))
+    }
+
     func test_init_doesNotSendMessagesToView() {
         let (_, view) = makeSUT()
 
@@ -110,7 +118,7 @@ class FeedPresenterTests: XCTestCase {
     // MARK: - Helpers
 
     private func localized(_ key: String, file _: StaticString = #file, line _: UInt = #line) -> String {
-        let table = "Feed"
+        let _ = "Feed"
         let value = String(localized: LocalizedStringResource("\(key)"))
 //            if value == key {
 //                XCTFail("Missing localized string for key: \(key) in table: \(table)", file: file, line: line)
