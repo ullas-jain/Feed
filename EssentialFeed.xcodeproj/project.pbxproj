@@ -398,8 +398,6 @@
 				285DAB952A90852E003DC46E /* EssentialFeedTests-Bridging-Header.h */,
 				2849BC2C2A9DC10F009781A9 /* Feed Cache */,
 				787149052ACFDC8A00D9AA1D /* Feed Presentation */,
-				787149002ACFDAA500D9AA1D /* Feed.strings */,
-				787847A72AD3C8B800775F19 /* FeedPresenterTests.swift */,
 			);
 			path = EssentialFeedTests;
 			sourceTree = "<group>";
@@ -603,6 +601,8 @@
 		787149052ACFDC8A00D9AA1D /* Feed Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				787149002ACFDAA500D9AA1D /* Feed.strings */,
+				787847A72AD3C8B800775F19 /* FeedPresenterTests.swift */,
 				787149032ACFDC2300D9AA1D /* FeedLocalizationTests.swift */,
 			);
 			path = "Feed Presentation";
