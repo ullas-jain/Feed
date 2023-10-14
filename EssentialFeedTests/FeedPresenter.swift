@@ -51,11 +51,12 @@ class FeedPresenterTests: XCTestCase {
     // MARK: - Helpers
 
     private func localized(_ key: String, file _: StaticString = #file, line _: UInt = #line) -> String {
-        let _ = "Feed"
-        let value = String(localized: LocalizedStringResource("\(key)"))
-//            if value == key {
-//                XCTFail("Missing localized string for key: \(key) in table: \(table)", file: file, line: line)
-//            }
+        let table = "Feed"
+        let bundle = Bundle(for: FeedPresenter.self)
+        let value = bundle.localizedString(forKey: key, value: nil, table: table)
+        if value == key {
+            XCTFail("Missing localized string for key: \(key) in table: \(table)", file: #file, line: #line)
+        }
         return value
     }
 

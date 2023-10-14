@@ -25,7 +25,10 @@ public final class FeedPresenter {
     private let errorView: FeedErrorView
 
     private var feedLoadError: String {
-        String(localized: "FEED_VIEW_CONNECTION_ERROR")
+        NSLocalizedString("FEED_VIEW_CONNECTION_ERROR",
+                          tableName: "Feed",
+                          bundle: Bundle(for: FeedPresenter.self),
+                          comment: "Error message displayed when we can't load the image feed from the server")
     }
 
     public init(feedView: FeedView, loadingView: FeedLoadingView, errorView: FeedErrorView) {
@@ -35,7 +38,10 @@ public final class FeedPresenter {
     }
 
     public static var title: String {
-        String(localized: "FEED_VIEW_TITLE")
+        NSLocalizedString("FEED_VIEW_TITLE",
+                          tableName: "Feed",
+                          bundle: Bundle(for: FeedPresenter.self),
+                          comment: "Title for the feed view")
     }
 
     public func didStartLoadingFeed() {
