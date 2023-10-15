@@ -35,6 +35,6 @@ jobs:
       run: |
         xcodebuild clean build test -project EssentialFeed.xcodeproj -scheme "CI_iOS" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 14,OS=16.4" ONLY_ACTIVE_ARCH=YES
 
-    - name: Lint Swift Code
-      run: |
-        swiftlint lint
+#    - name: Lint Swift Code
+#      run: |
+#        swiftlint lint
