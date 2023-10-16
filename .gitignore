@@ -1,5 +1,3 @@
-xcuserdata
-
 # Mac OS X
 *.DS_Store
 
@@ -10,7 +8,8 @@ xcuserdata
 *.perspectivev3
 *.xcuserstate
 project.xcworkspace/
-xcuserdata/
+**/xcuserdata/*
+# *xcworkspace/xcuserdata/*
 
 # Generated files
 *.o
