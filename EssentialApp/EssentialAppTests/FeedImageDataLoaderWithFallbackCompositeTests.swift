@@ -45,8 +45,7 @@ class FeedImageDataLoaderWithFallbackCompositeTests: XCTestCase {
 
     // MARK: - Helpers
 
-    private func makeSUT(file: StaticString = #file,
-                         line: UInt = #line) -> (sut: FeedImageDataLoader, primary: LoaderSpy, fallback: LoaderSpy)
+    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: FeedImageDataLoader, primary: LoaderSpy, fallback: LoaderSpy)
     {
         let primaryLoader = LoaderSpy()
         let fallbackLoader = LoaderSpy()
