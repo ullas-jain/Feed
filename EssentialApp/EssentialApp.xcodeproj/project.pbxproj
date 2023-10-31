@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7836E77C2AECE7110054517F /* DebuggingSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7836E77B2AECE7110054517F /* DebuggingSceneDelegate.swift */; };
 		78552E1F2AEF7C3E00896231 /* FeedUIIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78552E1E2AEF7C3E00896231 /* FeedUIIntegrationTests.swift */; };
 		78552E2A2AEF7C7300896231 /* UIButton+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78552E212AEF7C7300896231 /* UIButton+TestHelpers.swift */; };
 		78552E2B2AEF7C7300896231 /* FeedImageCell+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78552E272AEF7C7300896231 /* FeedImageCell+TestHelpers.swift */; };
@@ -78,7 +77,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		7836E77B2AECE7110054517F /* DebuggingSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebuggingSceneDelegate.swift; sourceTree = "<group>"; };
 		78552E1E2AEF7C3E00896231 /* FeedUIIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUIIntegrationTests.swift; sourceTree = "<group>"; };
 		78552E212AEF7C7300896231 /* UIButton+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIButton+TestHelpers.swift"; path = "../../../EssentialFeediOSTests/Helpers/UIButton+TestHelpers.swift"; sourceTree = "<group>"; };
 		78552E222AEF7C7300896231 /* UIControl+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIControl+TestHelpers.swift"; path = "../../../EssentialFeediOSTests/Helpers/UIControl+TestHelpers.swift"; sourceTree = "<group>"; };
@@ -238,7 +236,6 @@
 				787786AF2AEA49CA001C46B0 /* FeedImageDataLoaderWithFallbackComposite.swift */,
 				7867EFAD2AEBD6C200C5F85F /* FeedLoaderCacheDecorator.swift */,
 				7867EFB72AEBD90F00C5F85F /* FeedImageDataLoaderCacheDecorator.swift */,
-				7836E77B2AECE7110054517F /* DebuggingSceneDelegate.swift */,
 				78552E202AEF7C5400896231 /* Composer */,
 			);
 			path = EssentialApp;
@@ -385,7 +382,6 @@
 				787F55E22AEF7A5000312831 /* FeedLoaderPresentationAdapter.swift in Sources */,
 				787F55E32AEF7A5000312831 /* FeedUIComposer.swift in Sources */,
 				7867EFAE2AEBD6C200C5F85F /* FeedLoaderCacheDecorator.swift in Sources */,
-				7836E77C2AECE7110054517F /* DebuggingSceneDelegate.swift in Sources */,
 				78F5B59E2AE90A6F0089F52F /* SceneDelegate.swift in Sources */,
 				787786B02AEA49CA001C46B0 /* FeedImageDataLoaderWithFallbackComposite.swift in Sources */,
 				787F55E42AEF7A5000312831 /* WeakRefVirtualProxy.swift in Sources */,
