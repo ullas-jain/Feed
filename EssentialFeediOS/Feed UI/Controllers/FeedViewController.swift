@@ -26,6 +26,12 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
         refresh()
     }
 
+    override public func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        tableView.sizeTableHeaderToFit()
+    }
+
     @IBAction private func refresh() {
         delegate?.didRequestFeedRefresh()
     }
