@@ -36,6 +36,6 @@ class SceneDelegateTests: XCTestCase {
 private class UIWindowSpy: UIWindow {
     var makeKeyAndVisibleCallCount = 0
     override func makeKeyAndVisible() {
-        makeKeyAndVisibleCallCount = 1
+        makeKeyAndVisibleCallCount += 1
     }
 }
