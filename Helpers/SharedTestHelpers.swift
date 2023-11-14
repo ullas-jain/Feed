@@ -18,3 +18,16 @@ func anyURL() -> URL {
 func anyData() -> Data {
     Data("any data".utf8)
 }
+
+func makeItemsJSON(_ items: [[String: Any]]) -> Data {
+    let json = ["items": items]
+    // swiftlint:disable force_try
+    return try! JSONSerialization.data(withJSONObject: json)
+    // swiftlint:enable force_try
+}
+
+extension HTTPURLResponse {
+    convenience init(statusCode: Int) {
+        self.init(url: anyURL(), statusCode: statusCode, httpVersion: nil, headerFields: nil)!
+    }
+}
