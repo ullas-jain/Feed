@@ -531,6 +531,7 @@
 		784B650A2ADAA28600889F40 /* Feed Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				787149002ACFDAA500D9AA1D /* Feed.strings */,
 				784B65082ADAA20000889F40 /* FeedPresenter.swift */,
 				784B650B2ADAA29200889F40 /* FeedViewModel.swift */,
 				784B650D2ADAA2B100889F40 /* FeedLoadingViewModel.swift */,
@@ -597,7 +598,6 @@
 		787149052ACFDC8A00D9AA1D /* Feed Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				787149002ACFDAA500D9AA1D /* Feed.strings */,
 				787847A72AD3C8B800775F19 /* FeedPresenterTests.swift */,
 				787149032ACFDC2300D9AA1D /* FeedLocalizationTests.swift */,
 				78C06E332ADAA753001DBA83 /* FeedImagePresenterTests.swift */,
