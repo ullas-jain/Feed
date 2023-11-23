@@ -10,15 +10,6 @@ import EssentialFeediOS
 import XCTest
 
 class FeedSnapshotTests: XCTestCase {
-    func test_emptyFeed() {
-        let sut = makeSUT()
-
-        sut.display(emptyFeed())
-
-        assert(snapshot: sut.snapshot(for: .iPhone(style: .light)), named: "EMPTY_FEED_light")
-        assert(snapshot: sut.snapshot(for: .iPhone(style: .dark)), named: "EMPTY_FEED_dark")
-    }
-
     func test_feedWithContent() {
         let sut = makeSUT()
 
@@ -26,15 +17,6 @@ class FeedSnapshotTests: XCTestCase {
 
         assert(snapshot: sut.snapshot(for: .iPhone(style: .light)), named: "FEED_WITH_CONTENT_light")
         assert(snapshot: sut.snapshot(for: .iPhone(style: .dark)), named: "FEED_WITH_CONTENT_dark")
-    }
-
-    func test_feedWithErrorMessage() {
-        let sut = makeSUT()
-
-        sut.display(.error(message: "This is a\nmulti-line\nerror message"))
-
-        assert(snapshot: sut.snapshot(for: .iPhone(style: .light)), named: "FEED_WITH_ERROR_MESSAGE_light")
-        assert(snapshot: sut.snapshot(for: .iPhone(style: .dark)), named: "FEED_WITH_ERROR_MESSAGE_dark")
     }
 
     func test_feedWithFailedImageLoading() {
@@ -56,10 +38,6 @@ class FeedSnapshotTests: XCTestCase {
         controller.tableView.showsVerticalScrollIndicator = false
         controller.tableView.showsHorizontalScrollIndicator = false
         return controller
-    }
-
-    private func emptyFeed() -> [FeedImageCellController] {
-        return []
     }
 
     private func feedWithContent() -> [ImageStub] {
@@ -91,28 +69,12 @@ class FeedSnapshotTests: XCTestCase {
             ),
         ]
     }
-
-    private func makeSnapshotURL(named name: String, file: StaticString) -> URL {
-        return URL(fileURLWithPath: String(describing: file))
-            .deletingLastPathComponent()
-            .appendingPathComponent("snapshots")
-            .appendingPathComponent("\(name).png")
-    }
-
-    private func makeSnapshotData(for snapshot: UIImage, file: StaticString, line: UInt) -> Data? {
-        guard let data = snapshot.pngData() else {
-            XCTFail("Failed to generate PNG data representation from snapshot", file: file, line: line)
-            return nil
-        }
-
-        return data
-    }
 }
 
 private extension ListViewController {
     func display(_ stubs: [ImageStub]) {
         let cells: [FeedImageCellController] = stubs.map { stub in
-            let cellController = FeedImageCellController(delegate: stub)
+            let cellController = FeedImageCellController(viewModel: stub.viewModel, delegate: stub)
             stub.controller = cellController
             return cellController
         }
