@@ -5,26 +5,20 @@
 //  Created by Jain Ullas on 9/17/23.
 //
 import EssentialFeed
-import Foundation
 import UIKit
 
-public extension CellController {
-    func preload() {}
-    func cancelLoad() {}
-}
-
-public protocol CellController {
-    func view(in tableView: UITableView) -> UITableViewCell
-}
+public typealias CellController = UITableViewDataSource & UITableViewDataSourcePrefetching & UITableViewDelegate
 
 public final class ListViewController: UITableViewController, UITableViewDataSourcePrefetching, ResourceLoadingView, ResourceErrorView {
-    public var onRefresh: (() -> Void)?
     @IBOutlet public private(set) var errorView: ErrorView?
 
     private var loadingControllers = [IndexPath: CellController]()
+
     private var tableModel = [CellController]() {
         didSet { tableView.reloadData() }
     }
+
+    public var onRefresh: (() -> Void)?
 
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +36,11 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
         onRefresh?()
     }
 
+    public func display(_ cellControllers: [CellController]) {
+        loadingControllers = [:]
+        tableModel = cellControllers
+    }
+
     public func display(_ viewModel: ResourceLoadingViewModel) {
         refreshControl?.update(isRefreshing: viewModel.isLoading)
     }
@@ -50,31 +49,32 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
         errorView?.message = viewModel.message
     }
 
-    public func display(_ cellControllers: [CellController]) {
-        loadingControllers = [:]
-        tableModel = cellControllers
-    }
-
     override public func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        tableModel.count
+        return tableModel.count
     }
 
-    override public func tableView(_: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        cellController(forRowAt: indexPath).view(in: tableView)
+    override public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let controller = cellController(forRowAt: indexPath)
+        return controller.tableView(tableView, cellForRowAt: indexPath)
     }
 
-    override public func tableView(_: UITableView, didEndDisplaying _: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cancelCellControllerLoad(forRowAt: indexPath)
+    override public func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let controller = removeLoadingController(forRowAt: indexPath)
+        controller?.tableView?(tableView, didEndDisplaying: cell, forRowAt: indexPath)
     }
 
-    public func tableView(_: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+    public func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         indexPaths.forEach { indexPath in
-            cellController(forRowAt: indexPath).preload()
+            let controller = cellController(forRowAt: indexPath)
+            controller.tableView(tableView, prefetchRowsAt: [indexPath])
         }
     }
 
-    public func tableView(_: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
-        indexPaths.forEach(cancelCellControllerLoad)
+    public func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
+        indexPaths.forEach { indexPath in
+            let controller = removeLoadingController(forRowAt: indexPath)
+            controller?.tableView?(tableView, cancelPrefetchingForRowsAt: [indexPath])
+        }
     }
 
     private func cellController(forRowAt indexPath: IndexPath) -> CellController {
@@ -83,8 +83,9 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
         return controller
     }
 
-    private func cancelCellControllerLoad(forRowAt indexPath: IndexPath) {
-        loadingControllers[indexPath]?.cancelLoad()
+    private func removeLoadingController(forRowAt indexPath: IndexPath) -> CellController? {
+        let controller = loadingControllers[indexPath]
         loadingControllers[indexPath] = nil
+        return controller
     }
 }
