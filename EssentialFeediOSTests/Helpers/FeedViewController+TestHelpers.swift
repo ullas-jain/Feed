@@ -42,6 +42,14 @@ extension ListViewController {
         ds?.tableView?(tableView, cancelPrefetchingForRowsAt: [index])
     }
 
+    func simulateErrorViewTap() {
+        errorView.simulateTap()
+    }
+
+    var errorMessage: String? {
+        return errorView.message
+    }
+
     var isShowingLoadingIndicator: Bool {
         refreshControl?.isRefreshing == true
     }
@@ -61,10 +69,6 @@ extension ListViewController {
 
     private var feedImagesSection: Int {
         0
-    }
-
-    var errorMessage: String? {
-        errorView?.message
     }
 
     func renderedFeedImageData(at index: Int) -> Data? {
