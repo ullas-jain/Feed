@@ -114,7 +114,7 @@
 		7890E7E02ADE53BB0088EC80 /* CoreDataFeedStore+FeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7890E7DF2ADE53BB0088EC80 /* CoreDataFeedStore+FeedImageDataLoader.swift */; };
 		7890E7E22ADE55490088EC80 /* CoreDataFeedStore+FeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7890E7E12ADE55490088EC80 /* CoreDataFeedStore+FeedStore.swift */; };
 		78B5D16E2B1C20E000081418 /* CellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B5D16D2B1C20E000081418 /* CellController.swift */; };
-		78B5D1702B1C254900081418 /* UIView+Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B5D16F2B1C254900081418 /* UIView+Container.swift */; };
+		78B5D1712B1C25AF00081418 /* UIView+Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B5D16F2B1C254900081418 /* UIView+Container.swift */; };
 		78C06E312ADAA52D001DBA83 /* Feed.strings in Resources */ = {isa = PBXBuildFile; fileRef = 787149002ACFDAA500D9AA1D /* Feed.strings */; };
 		78C06E322ADAA6ED001DBA83 /* FeedLocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787149032ACFDC2300D9AA1D /* FeedLocalizationTests.swift */; };
 		78C06E342ADAA753001DBA83 /* FeedImagePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C06E332ADAA753001DBA83 /* FeedImagePresenterTests.swift */; };
@@ -696,7 +696,6 @@
 				78728F182AF7ACF60032C64B /* UIViewController+Snapshot.swift */,
 				787BB6292AF0CF9B00F344B5 /* UIImage+TestHelpers.swift */,
 				78728F1A2AF7AD390032C64B /* XCTestCase+Snapshot.swift */,
-				78B5D16F2B1C254900081418 /* UIView+Container.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -724,6 +723,7 @@
 			children = (
 				28DA9D0B2AB700EB00360130 /* ListViewController.swift */,
 				78B5D16D2B1C20E000081418 /* CellController.swift */,
+				78B5D16F2B1C254900081418 /* UIView+Container.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1077,6 +1077,7 @@
 				787BB62C2AF0CFF300F344B5 /* UITableView+HeaderSizing.swift in Sources */,
 				787847AF2AD3CE0000775F19 /* UIRefreshControl+Helpers.swift in Sources */,
 				784BB1BC2ACFD13A0005BABE /* UITableView+Dequeueing.swift in Sources */,
+				78B5D1712B1C25AF00081418 /* UIView+Container.swift in Sources */,
 				78B5D16E2B1C20E000081418 /* CellController.swift in Sources */,
 				7864224E2AC120B6004B133E /* UIView+Shimmering.swift in Sources */,
 				787847AA2AD3CCF800775F19 /* FeedErrorView.swift in Sources */,
@@ -1094,7 +1095,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				78728F1B2AF7AD390032C64B /* XCTestCase+Snapshot.swift in Sources */,
-				78B5D1702B1C254900081418 /* UIView+Container.swift in Sources */,
 				2822FD3D2AAEDE6000DAC615 /* EssentialFeediOSTests.swift in Sources */,
 				7876CF362B0F07E80033B7B5 /* ListSnapshotTests.swift in Sources */,
 				78728F192AF7ACF60032C64B /* UIViewController+Snapshot.swift in Sources */,
