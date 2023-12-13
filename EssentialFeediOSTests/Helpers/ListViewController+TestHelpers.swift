@@ -144,6 +144,10 @@ extension ListViewController {
         delegate?.tableView?(tableView, didSelectRowAt: index)
     }
 
+    var canLoadMoreFeed: Bool {
+        loadMoreFeedCell() != nil
+    }
+
     private var feedImagesSection: Int { 0 }
     private var feedLoadMoreSection: Int { 1 }
 }
