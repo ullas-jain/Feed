@@ -15,6 +15,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     private lazy var httpClient: HTTPClient = URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
     private lazy var logger = Logger(subsystem: "com.essentialdeveloper.EssentialAppCaseStudy", category: "main")
+    private lazy var scheduler: AnyDispatchQueueScheduler = DispatchQueue(
+        label: "com.essentialdeveloper.infra.queue",
+        qos: .userInitiated,
+        attributes: .concurrent
+    ).eraseToAnyScheduler()
 
     private lazy var store: FeedStore & FeedImageDataStore = {
         do {
@@ -40,10 +45,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             selection: showComments
         ))
 
-    convenience init(httpClient: HTTPClient, store: FeedStore & FeedImageDataStore) {
+    convenience init(httpClient: HTTPClient, store: FeedStore & FeedImageDataStore, scheduler: AnyDispatchQueueScheduler) {
         self.init()
         self.httpClient = httpClient
         self.store = store
+        self.scheduler = scheduler
     }
 
     func scene(_ scene: UIScene, willConnectTo _: UISceneSession, options _: UIScene.ConnectionOptions) {
@@ -118,11 +124,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         return localImageLoader
             .loadImageDataPublisher(from: url)
-            .fallback(to: { [httpClient] in
+            .fallback(to: { [httpClient, scheduler] in
                 httpClient
                     .getPublisher(url: url)
                     .tryMap(FeedImageDataMapper.map)
                     .caching(to: localImageLoader, using: url)
+                    .subscribe(on: scheduler)
+                    .eraseToAnyPublisher()
             })
+            .subscribe(on: scheduler)
+            .eraseToAnyPublisher()
     }
 }
